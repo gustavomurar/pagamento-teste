@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Teste Mercado Pago</title>
 </head>
 <body>
-    <h1>Ecommerce Teste</h1>
-    <p>Camisa</p>
-    <p>Preço: R$259,99</p>
-    <a href={{ link_pagamento }}>Compre aqui</a>
+  <h1>Produto: Camisa</h1>
+  <p>Preço: R$ 259,99</p>
+
+  {% if link and link.startswith('http') %}
+      <a href="{{ link }}" target="_blank">
+          <button style="padding:10px 20px;font-size:16px;">Comprar agora</button>
+      </a>
+  {% else %}
+      <p style="color:red;">Erro ao gerar link de pagamento. Veja o terminal.</p>
+  {% endif %}
 </body>
 </html>
